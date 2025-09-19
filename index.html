@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Visita de Obra - Beta ArqEng</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="manifest" href="manifest.json">
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("sw.js");
+    }
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+<header>
+  <img src="logoapp.png" alt="Logo Beta ArqEng">
+  <h1>Relatório de Visita de Obra</h1>
+</header>
+
+<form id="visitaForm">
+  <section>
+    <h2>Informações Gerais</h2>
+    <label>Data da visita: <input type="date" name="data" required></label>
+    <label>Responsável pela visita: <input type="text" name="responsavel" required></label>
+    <label>Nome do cliente: <input type="text" name="cliente" required></label>
+    <label>Obra/Projeto: <input type="text" name="obra" required></label>
+  </section>
+
+  <section>
+    <h2>Status da Obra</h2>
+    <label>Etapa atual:
+      <select name="etapa">
+        <option>Fundação</option>
+        <option>Estrutura</option>
+        <option>Alvenaria</option>
+        <option>Instalações</option>
+        <option>Acabamento</option>
+        <option>Finalização</option>
+      </select>
+    </label>
+    <label>Percentual concluído (%): <input type="number" name="percentual" min="0" max="100"></label>
+    <fieldset>
+      <legend>Checklist</legend>
+      <label><input type="checkbox" name="checklist" value="Limpeza"> Limpeza</label>
+      <label><input type="checkbox" name="checklist" value="Segurança"> Segurança</label>
+      <label><input type="checkbox" name="checklist" value="Conformidade"> Conformidade</label>
+    </fieldset>
+  </section>
+
+  <section>
+    <h2>Observações Técnicas</h2>
+    <textarea name="observacoes" rows="4" placeholder="Digite suas observações..."></textarea>
+  </section>
+
+  <section>
+    <h2>Registro Fotográfico</h2>
+    <input type="file" id="fotos" name="fotos" accept="image/*" multiple>
+  </section>
+
+  <section>
+    <h2>Resumo</h2>
+    <label>Comentário final: <textarea name="comentario" rows="3"></textarea></label>
+    <label>Previsão próxima visita: <input type="date" name="proxima"></label>
+  </section>
+
+  <button type="button" id="gerarPDF">Gerar Relatório</button>
+</form>
+
+</body>
+</html>
