@@ -1,0 +1,12 @@
+{
+  "name": "Beta ArqEng - Visita de Obra",
+  "short_name": "Visita Obra",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#9C27B0",
+  "theme_color": "#9C27B0",
+  "icons": [
+    { "src": "logoapp.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "logoapp.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}
